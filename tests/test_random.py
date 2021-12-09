@@ -1,8 +1,10 @@
 import unittest
 
 import numpy as np
+import numpy.testing as npt
 import random
 from functools import reduce
+
 
 class RandomTest(unittest.TestCase):
     def test_random_numpy(self):
@@ -12,19 +14,8 @@ class RandomTest(unittest.TestCase):
 
         sample = np.random.normal(mean, sdev, sample_size)
 
-        self.assertAlmostEqual(mean, np.mean(sample), places=2)
-        self.assertAlmostEqual(sdev, np.std(sample), places=2)
-
-    #def test_normalvariate(self):
-    #    mean = 5
-    #    sdev = 3
-    #    sample_size = 1000000
-
-    #    sample = random.normalvariate(mean, sdev)
-
-    #    self.assertAlmostEqual(mean, np.mean(sample), places=2)
-    #    self.assertAlmostEqual(sdev, np.std(sample), places=2)
-
+        npt.assert_almost_equal(mean, np.mean(sample), decimal=2)
+        npt.assert_almost_equal(sdev, np.std(sample), decimal=2)
 
 
     def sum_of_squares(self, l):
@@ -33,9 +24,10 @@ class RandomTest(unittest.TestCase):
         return reduce(lambda a, b: a + b, squares)
 
     def test_sums(self):
-        ls = [['1', '2', '3'],
-             ['-1', '-2', '-3'],
-             ['1', '2', '#100', '3']
+        ls = [
+                ['1', '2', '3'],
+                ['-1', '-2', '-3'],
+                ['1', '2', '#100', '3']
             ]
         for l in ls:
-            self.assertEqual(self.sum_of_squares(l), 14)
+            npt.assert_equal(self.sum_of_squares(l), 14)
