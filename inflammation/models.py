@@ -38,6 +38,7 @@ class Doctor(Person):
 
         return new_patient
 
+
 class Patient(Person):
     def __init__(self, name):
         super().__init__(name)
@@ -46,16 +47,15 @@ class Patient(Person):
     def add_observation(self, value, day=None):
         if day is None:
             try:
-                day = self.observations[-1]['day'] + 1
+                day = self.observations[-1].day + 1
 
             except IndexError:
                 day = 0
 
-        new_observation = Observation(value, day)
+        new_observation = Observation(day, value)
 
         self.observations.append(new_observation)
         return new_observation
-
 
     @property
     def last_observation(self):
@@ -122,16 +122,19 @@ def patient_normalise(data):
         return normalised
 
 
-# TODO(lesson-design) Add Patient class
 # TODO(lesson-design) Implement data persistence
-# TODO(lesson-design) Add Doctor class
+
 p = Patient('Alice')
 print(p.name)
 
-obs = p.add_observation(3,1)
+obs = p.add_observation(3)
 print(obs)
-print(p.observations[0].value)
+print(p.observations[0].day, p.observations[0].value)
+p.add_observation(4)
+print(p.last_observation)
+
 d = Doctor("Chris")
 d.add_patient("Alice")
 
+print(d.patients[0])
 print(d.patients[0].observations)
