@@ -18,6 +18,8 @@ class Observation:
     def __str__(self):
         return str(self.value)
 
+    def __eq__(self, other):
+        return self.day == other.day and self.value == other.value
 
 class Person:
     def __init__(self, name):
@@ -40,9 +42,15 @@ class Doctor(Person):
 
 
 class Patient(Person):
-    def __init__(self, name):
+    def __init__(self, name, observations=None):
         super().__init__(name)
+
         self.observations = []
+        if observations is not None:
+            self.observations = observations
+
+    def __eq__(self, other):
+        return self.name == other.name and self.observations[:] == other.observations[:]
 
     def add_observation(self, value, day=None):
         if day is None:
@@ -124,17 +132,3 @@ def patient_normalise(data):
 
 # TODO(lesson-design) Implement data persistence
 
-p = Patient('Alice')
-print(p.name)
-
-obs = p.add_observation(3)
-print(obs)
-print(p.observations[0].day, p.observations[0].value)
-p.add_observation(4)
-print(p.last_observation)
-
-d = Doctor("Chris")
-d.add_patient("Alice")
-
-print(d.patients[0])
-print(d.patients[0].observations)

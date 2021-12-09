@@ -6,10 +6,16 @@ class Book:
     def __str__(self):
         return self.title + ' by ' + self.author
 
+    def __eq__(self, other):
+        return self.title == other.title and self.author == other.author
+
 
 class Library:
-    def __init__(self):
-        self.books = []
+    def __init__(self, books=None):
+        if books is None:
+            self.books = []
+        else:
+            self.books = books
 
     def add_book(self, title, author):
         self.books.append(Book(title, author))
