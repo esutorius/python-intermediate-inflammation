@@ -1,25 +1,53 @@
-# Introduction
+# Inflam
 
-This is a template software project repository used by the [Intermediate Research Software Development Skills In Python](https://github.com/carpentries-incubator/python-intermediate-development).
+![Continuous Integration build in GitHub Actions](https://github.com/esutorius/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
 
-## Purpose
+Inflam is a data management system written in Python that manages trial data used in clinical inflammation studies.
 
-This repository is intended to be used as a code template which is copied by learners at [Intermediate Research Software Development Skills In Python](https://github.com/carpentries-incubator/python-intermediate-development) workshops.
-This can be done using the `Use this template` button towards the top right of this repo's GitHub page.
+## Main features
 
-## TODOs
+Here are some key features of Inflam:
 
-In a number of places, `TODO` comments indicate where code may be added during the
-workshop as the necessary topics are introduced.
-Each `TODO` comment should refer to a particular section of the workshop:
+- Provide basic statistical analyses over clinical trial data
+- Ability to work on trial data in Comma-Separated Value (CSV) format
+- Generate plots of trial data
+- Analytical functions and views can be easily extended based on its Model-View-Controller architecture
 
-- `TODO(lesson-collaborative)` - refers to the lesson titled 'Collaborative Software Development'
-- `TODO(lesson-robust)` - refers to the lesson titled 'Writing Robust Software'
-- `TODO(lesson-design)` - refers to the lesson titles 'Software Design in Python'
+## Prerequisites
 
-## Tests
+Inflam requires the following Python packages:
 
-Several tests have been implemented already, some of which are currently failing.
-These failing tests set out the requirements for the additional code to be implemented during the workshop.
+- [NumPy](https://www.numpy.org/) - makes use of NumPy's statistical functions
+- [Matplotlib](https://matplotlib.org/stable/index.html) - uses Matplotlib to generate statistical plots
 
-The tests should be run using `pytest`, which will be introduced during the workshop.
+The following optional packages are required to run Inflam's unit tests:
+
+- [pytest](https://docs.pytest.org/en/stable/) - Inflam's unit tests are written using pytest
+- [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
+
+## Installation/deployment
+
+The code is available on GitHub at [python-intermediate-inflammation](https://github.com/esutorius/python-intermediate-inflammation/)
+
+- Make a copy in a separate directory where you will be able to run the code.
+- The actual code is in 'inflammation', the data is in 'data'.
+
+## Basic usage
+
+
+
+## Contributing
+
+This code still needs to be developed and enhaced further. Any contribution is welcomed.
+
+## Contact information/getting help
+
+For questions please email: etws@roe.ac.uk
+
+## Credits/Acknowledgements
+
+With thanks to the Software Carpentries and the people running the [Carpentries Incubator](https://github.com/carpentries-incubator/proposals/#the-carpentries-incubator)
+
+## Licence
+
+Licensed under CC-BY 4.0 2021
